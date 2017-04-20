@@ -1,0 +1,113 @@
+<h3>Perfil</h3> 
+<div data-component="crn-datasource" id="crn-datasource-763276" class="component-holder"> 
+  <datasource filter="" name="Perfil" entity="api/rest/diagram/social/Perfil" keys="id" rows-per-page="100" delete-message="Deseja remover?" class=""></datasource> 
+</div> 
+<div class="component-holder ng-binding ng-scope" data-component="crn-report-button" id="crn-report-button-130018"></div> 
+<div data-component="crn-button" id="crn-button-564202"> 
+  <button class="btn btn-primary" type="submit" onclick="" ng-click="Perfil.startInserting()" ng-hide="Perfil.inserting || Perfil.editing"><i class="fa fa-user"></i> <span class="">{{"template.crud.new" | translate}}</span></button> 
+</div>
+<div class="component-holder ng-binding ng-scope" data-component="crn-report-button" id="crn-report-button-361134"> 
+  <button type="button" class="btn btn-info" ng-hide="datasource.inserting || datasource.editing" ng-controller="ReportController" ng-click="getReport('teste-jasper')">Teste Jasper</button> 
+</div> 
+<br> 
+<div class="component-holder ng-binding ng-scope" data-component="crn-report-button" id="crn-report-button-137604"> 
+  <button type="button" class="btn btn-info" ng-hide="datasource.inserting || datasource.editing" ng-controller="ReportController" ng-click="getReport('teste-adhoc')">Teste Adhoc</button>
+</div> 
+<br> 
+<div class="component-holder ng-binding ng-scope" data-component="crn-report-button" id="crn-report-button-220678"></div> 
+<div class="component-holder" data-component="crn-grid" id="crn-grid-Perfil"> 
+  <div crn-datasource="Perfil" class="" ng-hide="Perfil.editing || Perfil.inserting"> 
+    <table class="table  table-bordered table-hover table-striped"> 
+      <thead> 
+        <tr class="table-header"> 
+          <th class=""> 
+            <div class="">
+               Id 
+            </div> </th> 
+          <th class=""> 
+            <div class="">
+               Nome 
+            </div> </th> 
+          <th class=""> 
+            <div class="">
+               Foto 
+            </div> </th> 
+          <th class=""> 
+            <div class="">
+               {{"template.crud.actions" | translate}} 
+            </div> </th> 
+        </tr> 
+      </thead> 
+      <tbody> 
+        <tr class="table-content" ng-repeat="rowData in datasource.data"> 
+          <td class=""> 
+            <div class="">
+               {{rowData.id}} 
+            </div> </td> 
+          <td class=""> 
+            <div class="">
+               {{rowData.nome}} 
+            </div> </td> 
+          <td class=""> 
+            <div class=""> 
+              <a ng-if="rowData.foto" ng-click="datasource.openImage(rowData.foto)"> <img data-ng-src="{{'data:image/png;base64,' + rowData.foto}}" style="max-height: 30px;"> </a> 
+            </div> </td> 
+          <td class=""> 
+            <div class=""> 
+              <button class="btn btn-default btn-sm" type="submit" ng-click="datasource.startEditing(rowData)"><i class="fa fa-edit"></i></button> 
+              <button class="btn btn-default btn-sm" type="submit" ng-click="datasource.remove(rowData)"><i class="fa fa-times"></i></button> 
+            </div> </td> 
+        </tr> 
+      </tbody> 
+    </table> 
+    <div class="table-footer-controls"> 
+      <button class="btn btn-default btn-block btn-clicked" ng-show="datasource.hasNextPage()" ng-click="datasource.nextPage()">{{"template.crud.load_more" | translate}}...</button> 
+    </div> 
+  </div> 
+</div> 
+<div data-component="crn-form" id="crn-form-form-Perfil"> 
+  <div class="form" ng-show="Perfil.editing || Perfil.inserting"> 
+    <form crn-datasource="Perfil" class=""> 
+      <div class="tool-bar" ng-hide="datasource.editing || datasource.inserting"> 
+        <button class="btn btn-primary" ng-click="datasource.startInserting()"><i class="glyphicon glyphicon-plus-sign"></i></button> 
+        <button class="btn btn-success" ng-click="datasource.startEditing()"><i class="glyphicon glyphicon-edit"></i></button> 
+        <button class="btn btn-primary" ng-disabled="!datasource.hasPrevious()" ng-click="datasource.previous()"><i class="glyphicon glyphicon-chevron-left"></i></button> 
+        <button class="btn btn-primary" ng-disabled="!datasource.hasNext()" ng-click="datasource.next()"><i class="glyphicon glyphicon-chevron-right"></i></button> 
+        <button class="btn btn-primary" ng-click="datasource.remove()"><i class="glyphicon glyphicon-trash"></i></button> 
+      </div> 
+      <div class="active-bar" ng-hide="!datasource.editing &amp;&amp; !datasource.inserting"> 
+        <button class="btn btn-success" ng-click="datasource.post()"><i class="glyphicon glyphicon-ok"></i></button> 
+        <button class="btn btn-danger" ng-click="datasource.cancel()"><i class="glyphicon glyphicon-remove"></i></button> 
+      </div> 
+      <br> 
+      <fieldset ng-disabled="!datasource.editing &amp;&amp; !datasource.inserting"> 
+        <div data-component="crn-textinput" id="crn-textinput-nome"> 
+          <div class="form-group"> 
+            <label for="textinput-nome" class="">Nome</label> 
+            <input type="text" ng-model="Perfil.active.nome" class="form-control" id="textinput-nome" placeholder="Nome"> 
+          </div> 
+        </div> 
+        <div data-component="crn-textinput" id="crn-textinput-foto"> 
+          <div class="form-group"> 
+            <label for="textinput-foto" class="">Foto</label> 
+            <div class="form-group upload-image-component" ngf-drop="" ngf-drag-over-class="dragover"> 
+              <img style="max-height: 128px; max-width: 128px;" ng-if="datasource.active.foto" data-ng-src="{{'data:image/png;base64,' + datasource.active.foto}}"> 
+              <img data-ng-src="{{datasource.noImageUpload}}" style="max-height: 128px; max-width: 128px;" class="btn" ng-if="!datasource.active.foto" ngf-drop="" ngf-select="" ngf-change="datasource.setFile($file, datasource.active, 'foto')" accept="image/*"> 
+              <div class="remove btn btn-danger btn-xs" ng-if="datasource.active.foto" ng-click="datasource.active.foto=null"> 
+                <span class="glyphicon glyphicon-remove"></span> 
+              </div> 
+            </div> 
+          </div> 
+        </div> 
+        <!-- NtoN  --> 
+        <!-- NtoN  end--> 
+      </fieldset> 
+    </form> 
+    <form> 
+      <fieldset> 
+        <!-- OneToN --> 
+        <!-- OneToOne  end --> 
+      </fieldset> 
+    </form> 
+  </div> 
+</div>
