@@ -20,7 +20,7 @@ import app.entity.*;
 public class RoleBusiness {
 
   private static final Logger log = LoggerFactory.getLogger(RoleBusiness.class);
-
+  private String nome;
 
   /**
    * Instância da classe RoleDAO que faz o acesso ao banco de dados
