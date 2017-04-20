@@ -144,4 +144,6 @@ public class RoleBusiness {
     // end-user-code  
     return result;  
   }
+  public void erro(){
+  }
 }
