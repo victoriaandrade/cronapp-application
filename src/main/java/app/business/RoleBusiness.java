@@ -146,4 +146,7 @@ public class RoleBusiness {
   }
   public void erro(){
   }
+  public void moido(){
+    
+  }
 }
