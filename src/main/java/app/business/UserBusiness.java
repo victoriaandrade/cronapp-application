@@ -20,6 +20,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @Service("UserBusiness")
 public class UserBusiness {
 
+  private String descricao;
   private static final Logger log = LoggerFactory.getLogger(UserBusiness.class);
   /**
    * Variável privada para verificação da criptofrafia
